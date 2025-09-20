@@ -4,24 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio de Javier Fiestas</title>
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f9; color: #333; }
-    header { background: #0d253f; color: #fff; text-align: center; padding: 2rem 1rem; }
-    header h1 { margin: 0; font-size: 2.5rem; }
-    header p { font-size: 1.2rem; }
-    section { padding: 2rem; max-width: 900px; margin: auto; }
-    h2 { color: #0d253f; border-bottom: 2px solid #0d253f; padding-bottom: 0.5rem; }
-    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .project { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .project h3 { margin-top: 0; }
-    .contact a { margin-right: 1rem; color: #0d253f; text-decoration: none; font-weight: bold; }
-    footer { text-align: center; padding: 1rem; background: #0d253f; color: #fff; }
-    @media(max-width: 768px) { .projects { grid-template-columns: 1fr; } }
+    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f9fafc; color: #333; }
+    header { background: #0d253f; color: #fff; text-align: center; padding: 3rem 1rem; }
+    header h1 { margin: 0; font-size: 2.8rem; font-weight: 700; }
+    header p { font-size: 1.2rem; margin-top: .5rem; }
+
+    section { padding: 2rem; max-width: 1000px; margin: auto; }
+    h2 { color: #0d253f; border-left: 6px solid #ffcc00; padding-left: .6rem; margin-bottom: 1rem; }
+
+    /* Proyectos */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .project { background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); transition: transform 0.2s ease; }
+    .project:hover { transform: translateY(-5px); }
+    .project h3 { margin-top: 0; font-size: 1.3rem; }
+
+    /* Tecnologías */
+    .tech-list { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .tech-badge { background: #0d253f; color: #fff; padding: .4rem .8rem; border-radius: 20px; font-size: .85rem; font-weight: 500; }
+    .tech-badge.docker { background: #2496ed; }
+    .tech-badge.python { background: #3776ab; }
+    .tech-badge.sql { background: #f29111; }
+    .tech-badge.linux { background: #333; }
+    .tech-badge.ml { background: #ff6f61; }
+    .tech-badge.cloud { background: #6c63ff; }
+
+    /* Contacto */
+    .contact a { margin-right: 1rem; color: #0d253f; text-decoration: none; font-weight: 600; transition: color 0.2s; }
+    .contact a:hover { color: #ff6f61; }
+
+    footer { text-align: center; padding: 1rem; background: #0d253f; color: #fff; margin-top: 2rem; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Javier Fiestas</h1>
+    <h1>Francisco Javier Fiestas Botella</h1>
     <p>Desarrollador Python · IA · Machine Learning · Web Apps</p>
   </header>
 
@@ -38,40 +57,40 @@
       <div class="project">
         <h3>📊 Predicción del precio del café</h3>
         <p>Modelo de Machine Learning con Random Forest para analizar series temporales y predecir el precio del café.</p>
-        <a href="https://github.com/Javierfiestasbotella" target="_blank">Ver en GitHub</a>
+        <a href="https://github.com/Javierfiestasbotella" target="_blank">🔗 Ver en GitHub</a>
       </div>
       <div class="project">
         <h3>🍽️ App de gestión con BBDD </h3>
         <p>Aplicación en Python/Tkinter para organizar base de datos de clientes y sus datos.</p>
-        <a href="https://github.com/Javierfiestasbotella/app_empresa_sgc" target="_blank">Ver en GitHub</a>
+        <a href="https://github.com/Javierfiestasbotella/app_empresa_sgc" target="_blank">🔗 Ver en GitHub</a>
       </div>
       <div class="project">
         <h3>🌦️ Asistente IA</h3>
         <p>Proyecto de Machine Learning e IA utilizando Geminis.</p>
-        <a href="https://github.com/Javierfiestasbotella/bot-chancla" target="_blank">Ver en GitHub</a>
+        <a href="https://github.com/Javierfiestasbotella/bot-chancla" target="_blank">🔗 Ver en GitHub</a>
       </div>
       <div class="project">
-        <h3>🧑‍🤝‍🧑App para Hostelería</h3>
-        <p>Aplicacion de creación de Sugerencias y creación de menús de Sugerencia para cada día en TKinter.</p>
-        <a href="https://github.com/Javierfiestasbotella/SugerChef" target="_blank">Ver en GitHub</a>
+        <h3>🧑‍🤝‍🧑 App para Hostelería</h3>
+        <p>Aplicación de creación de sugerencias y menús diarios en Tkinter.</p>
+        <a href="https://github.com/Javierfiestasbotella/SugerChef" target="_blank">🔗 Ver en GitHub</a>
       </div>
     </div>
   </section>
 
   <section>
-  <h2>Tecnologías</h2>
-  <ul style="columns: 2; -webkit-columns: 2; -moz-columns: 2;">
-    <li>🐍 Python (Pandas, Numpy, Matplotlib, Scikit-Learn)</li>
-    <li>🤖 Machine Learning & Deep Learning (Tensorflow, Keras)</li>
-    <li>🌐 Desarrollo Web (Flask, Django, HTML, CSS, JavaScript)</li>
-    <li>🗄️ Bases de Datos (PostgreSQL, MySQL, SQLite, MongoDB)</li>
-    <li>🐳 Docker & Virtualización</li>
-    <li>☁️ Cloud (AWS, Google Cloud, Azure - básico)</li>
-    <li>🐧 Linux & Automatización</li>
-    <li>📊 Power BI & Visualización de datos</li>
-    <li>🛠️ Git & GitHub</li>
-  </ul>
-</section>
+    <h2>Tecnologías</h2>
+    <div class="tech-list">
+      <span class="tech-badge python">🐍 Python</span>
+      <span class="tech-badge ml">🤖 Machine Learning (Tensorflow, Keras)</span>
+      <span class="tech-badge">🌐 Flask & Django</span>
+      <span class="tech-badge sql">🗄️ PostgreSQL / MySQL / SQLite</span>
+      <span class="tech-badge">📊 Power BI</span>
+      <span class="tech-badge docker">🐳 Docker</span>
+      <span class="tech-badge cloud">☁️ Cloud (AWS, GCP, Azure)</span>
+      <span class="tech-badge linux">🐧 Linux</span>
+      <span class="tech-badge">🛠️ Git & GitHub</span>
+    </div>
+  </section>
 
   <section class="contact">
     <h2>Contacto</h2>

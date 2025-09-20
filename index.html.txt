@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio de Javier Fiestas</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f9; color: #333; }
+    header { background: #0d253f; color: #fff; text-align: center; padding: 2rem 1rem; }
+    header h1 { margin: 0; font-size: 2.5rem; }
+    header p { font-size: 1.2rem; }
+    section { padding: 2rem; max-width: 900px; margin: auto; }
+    h2 { color: #0d253f; border-bottom: 2px solid #0d253f; padding-bottom: 0.5rem; }
+    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .project { background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .project h3 { margin-top: 0; }
+    .contact a { margin-right: 1rem; color: #0d253f; text-decoration: none; font-weight: bold; }
+    footer { text-align: center; padding: 1rem; background: #0d253f; color: #fff; }
+    @media(max-width: 768px) { .projects { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Javier Fiestas</h1>
+    <p>Desarrollador Python · IA · Machine Learning · Web Apps</p>
+  </header>
+
+  <section>
+    <h2>Sobre mí</h2>
+    <p>Soy programador Python con formación en Inteligencia Artificial, Machine Learning y desarrollo web. 
+       Vengo del sector de la hostelería, lo que me ha dado experiencia en organización, atención al detalle y trabajo en equipo. 
+       Me apasiona crear soluciones prácticas con la tecnología.</p>
+  </section>
+
+  <section>
+    <h2>Proyectos destacados</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>📊 Predicción del precio del café</h3>
+        <p>Modelo de Machine Learning con Random Forest para analizar series temporales y predecir el precio del café.</p>
+        <a href="https://github.com/Javierfiestasbotella" target="_blank">Ver en GitHub</a>
+      </div>
+      <div class="project">
+        <h3>🍽️ App de gestión en restauración</h3>
+        <p>Aplicación en Python/Tkinter para organizar pedidos, mesas y facturación en hostelería.</p>
+        <a href="https://github.com/Javierfiestasbotella" target="_blank">Ver en GitHub</a>
+      </div>
+      <div class="project">
+        <h3>🌦️ Predicción de precipitaciones</h3>
+        <p>Proyecto de Machine Learning aplicando algoritmos de clasificación para pronosticar lluvias.</p>
+        <a href="https://github.com/Javierfiestasbotella" target="_blank">Ver en GitHub</a>
+      </div>
+      <div class="project">
+        <h3>🧑‍🤝‍🧑 Personas desaparecidas</h3>
+        <p>Análisis de datos y visualización para ayudar en la investigación de casos de personas desaparecidas.</p>
+        <a href="https://github.com/Javierfiestasbotella" target="_blank">Ver en GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tecnologías</h2>
+    <p>Python · Pandas · Numpy · Matplotlib · Scikit-Learn · Tensorflow · Keras · Flask · Django · SQL · Git · Power BI</p>
+  </section>
+
+  <section class="contact">
+    <h2>Contacto</h2>
+    <a href="https://github.com/Javierfiestasbotella" target="_blank">GitHub</a>
+    <a href="https://javierfiestasbotella.blogspot.com/" target="_blank">Blog</a>
+    <a href="mailto:javierfiestasbotella@gmail.com">Email</a>
+    <a href="CV%202025.pdf" target="_blank">Descargar CV</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Javier Fiestas · Portafolio personal</p>
+  </footer>
+</body>
+</html>

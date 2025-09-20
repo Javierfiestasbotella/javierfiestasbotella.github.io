@@ -4,44 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio de Javier Fiestas</title>
-  <!-- Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f9fafc; color: #333; }
-    header { background: #0d253f; color: #fff; text-align: center; padding: 3rem 1rem; }
+    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f9fafc; color: #333; transition: all 0.3s ease; }
+    header { background: #0d253f; color: #fff; text-align: center; padding: 3rem 1rem; position: relative; }
     header h1 { margin: 0; font-size: 2.8rem; font-weight: 700; }
     header p { font-size: 1.2rem; margin-top: .5rem; }
+    #darkToggle { position: absolute; top: 20px; right: 20px; background: #ffcc00; border: none; padding: .5rem 1rem; border-radius: 20px; cursor: pointer; font-weight: 600; }
 
     section { padding: 2rem; max-width: 1000px; margin: auto; }
     h2 { color: #0d253f; border-left: 6px solid #ffcc00; padding-left: .6rem; margin-bottom: 1rem; }
 
-    /* Proyectos */
     .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .project { background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); transition: transform 0.2s ease; }
+    .project { background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); transition: transform 0.2s ease, background 0.3s ease; }
     .project:hover { transform: translateY(-5px); }
-    .project h3 { margin-top: 0; font-size: 1.3rem; }
 
-    /* Tecnologías */
     .tech-list { display: flex; flex-wrap: wrap; gap: .6rem; }
     .tech-badge { background: #0d253f; color: #fff; padding: .4rem .8rem; border-radius: 20px; font-size: .85rem; font-weight: 500; }
-    .tech-badge.docker { background: #2496ed; }
-    .tech-badge.python { background: #3776ab; }
-    .tech-badge.sql { background: #f29111; }
-    .tech-badge.linux { background: #333; }
-    .tech-badge.ml { background: #ff6f61; }
-    .tech-badge.cloud { background: #6c63ff; }
 
-    /* Contacto */
     .contact a { margin-right: 1rem; color: #0d253f; text-decoration: none; font-weight: 600; transition: color 0.2s; }
     .contact a:hover { color: #ff6f61; }
 
     footer { text-align: center; padding: 1rem; background: #0d253f; color: #fff; margin-top: 2rem; }
+
+    /* 🔹 Dark Mode */
+    body.dark-mode { background: #121212; color: #eee; }
+    body.dark-mode header { background: #1e1e1e; }
+    body.dark-mode h2 { color: #ffcc00; border-left-color: #ff6f61; }
+    body.dark-mode .project { background: #1e1e1e; box-shadow: 0 4px 8px rgba(255,255,255,0.05); }
+    body.dark-mode .contact a { color: #ffcc00; }
+    body.dark-mode footer { background: #1e1e1e; }
+    body.dark-mode #darkToggle { background: #ff6f61; color: #fff; }
   </style>
 </head>
 <body>
   <header>
     <h1>Francisco Javier Fiestas Botella</h1>
     <p>Desarrollador Python · IA · Machine Learning · Web Apps</p>
+    <button id="darkToggle">🌙 Modo oscuro</button>
   </header>
 
   <section>
@@ -80,14 +80,14 @@
   <section>
     <h2>Tecnologías</h2>
     <div class="tech-list">
-      <span class="tech-badge python">🐍 Python</span>
-      <span class="tech-badge ml">🤖 Machine Learning (Tensorflow, Keras)</span>
+      <span class="tech-badge">🐍 Python</span>
+      <span class="tech-badge">🤖 Machine Learning (Tensorflow, Keras)</span>
       <span class="tech-badge">🌐 Flask & Django</span>
-      <span class="tech-badge sql">🗄️ PostgreSQL / MySQL / SQLite</span>
+      <span class="tech-badge">🗄️ PostgreSQL / MySQL / SQLite</span>
       <span class="tech-badge">📊 Power BI</span>
-      <span class="tech-badge docker">🐳 Docker</span>
-      <span class="tech-badge cloud">☁️ Cloud (AWS, GCP, Azure)</span>
-      <span class="tech-badge linux">🐧 Linux</span>
+      <span class="tech-badge">🐳 Docker</span>
+      <span class="tech-badge">☁️ Cloud (AWS, GCP, Azure)</span>
+      <span class="tech-badge">🐧 Linux</span>
       <span class="tech-badge">🛠️ Git & GitHub</span>
     </div>
   </section>
@@ -103,5 +103,13 @@
   <footer>
     <p>© 2025 Javier Fiestas · Portafolio personal</p>
   </footer>
+
+  <script>
+    const toggle = document.getElementById("darkToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️ Modo claro" : "🌙 Modo oscuro";
+    });
+  </script>
 </body>
 </html>

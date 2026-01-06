@@ -45,12 +45,29 @@
     body.dark-mode .contact a { color: #ffcc00; }
     body.dark-mode footer { background: #1e1e1e; }
     body.dark-mode #darkToggle { background: #ff6f61; color: #fff; }
+    /* 🔹 Foto de perfil */
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 1.5rem;
+  border: 4px solid #ffcc00;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* 🔹 Dark Mode */
+body.dark-mode .profile-pic {
+  border-color: #ff6f61;
+}
+
   </style>
 </head>
 <body>
   <header>
     <h1>Francisco Javier Fiestas Botella</h1>
     <p>Desarrollador Python · IA · Machine Learning · Web Apps</p>
+    <img src="img/javi.jpg" alt="Foto de Javier Fiestas" class="profile-pic">
     <button id="darkToggle">🌙 Modo oscuro</button>
   </header>
 

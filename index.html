@@ -1,312 +1,1174 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio de Javier Fiestas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francisco Javier Fiestas Botella | Portfolio</title>
+  <meta name="description" content="Portfolio de Francisco Javier Fiestas Botella. Desarrollo Python, automatización, inteligencia artificial aplicada y desarrollo web enfocados a la creación de soluciones útiles y reales." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f9fafc; color: #333; transition: all 0.3s ease; }
-    header { background: #0d253f; color: #fff; text-align: center; padding: 3rem 1rem; position: relative; }
-    header h1 { margin: 0; font-size: 2.8rem; font-weight: 700; }
-    header p { font-size: 1.2rem; margin-top: .5rem; }
-    #darkToggle { position: absolute; top: 20px; right: 20px; background: #ffcc00; border: none; padding: .5rem 1rem; border-radius: 20px; cursor: pointer; font-weight: 600; }
+    :root {
+      --bg: #f4f7fb;
+      --bg-soft: #ffffff;
+      --bg-alt: #eaf0f7;
+      --text: #1b2430;
+      --muted: #5a6472;
+      --primary: #0f2742;
+      --primary-2: #1f4f82;
+      --accent: #f0b429;
+      --accent-2: #ff7a59;
+      --border: rgba(15, 39, 66, 0.10);
+      --shadow: 0 16px 40px rgba(17, 33, 54, 0.10);
+      --shadow-soft: 0 10px 24px rgba(17, 33, 54, 0.08);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --max-width: 1180px;
+    }
 
-    section { padding: 2rem; max-width: 1000px; margin: auto; }
-    h2 { color: #0d253f; border-left: 6px solid #ffcc00; padding-left: .6rem; margin-bottom: 1rem; }
+    body.dark-mode {
+      --bg: #0d1117;
+      --bg-soft: #111826;
+      --bg-alt: #172131;
+      --text: #f3f6fb;
+      --muted: #b4bfd0;
+      --primary: #dce9ff;
+      --primary-2: #8bb7ff;
+      --accent: #ffc857;
+      --accent-2: #ff8b6b;
+      --border: rgba(255, 255, 255, 0.10);
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.35);
+      --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.28);
+    }
 
-    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .project { background: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.08); transition: transform 0.2s ease, background 0.3s ease; }
-    .project:hover { transform: translateY(-5px); }
+    * {
+      box-sizing: border-box;
+    }
 
-    .tech-list { display: flex; flex-wrap: wrap; gap: .6rem; }
-    .tech-badge { color: #fff; padding: .4rem .8rem; border-radius: 20px; font-size: .85rem; font-weight: 500; }
-    .python { background: #3776ab; }
-    .ml { background: #ff6f61; }
-    .web { background: #4caf50; }
-    .sql { background: #f29111; }
-    .powerbi { background: #f2c811; color: #000; }
-    .docker { background: #2496ed; }
-    .cloud { background: #6c63ff; }
-    .linux { background: #333; }
-    .git { background: #f34f29; }
-    .n8n { background: #FF6D00; }
-    .ai { background: #8e44ad; }
-    .prompt { background: #16a085; }
-    .automation { background: #e67e22; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-    .contact a { margin-right: 1rem; color: #0d253f; text-decoration: none; font-weight: 600; transition: color 0.2s; }
-    .contact a:hover { color: #ff6f61; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(240, 180, 41, 0.10), transparent 30%),
+        radial-gradient(circle at top right, rgba(31, 79, 130, 0.10), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
 
-    footer { text-align: center; padding: 1rem; background: #0d253f; color: #fff; margin-top: 2rem; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    /* 🔹 Dark Mode */
-    body.dark-mode { background: #121212; color: #eee; }
-    body.dark-mode header { background: #1e1e1e; }
-    body.dark-mode h2 { color: #ffcc00; border-left-color: #ff6f61; }
-    body.dark-mode .project { background: #1e1e1e; box-shadow: 0 4px 8px rgba(255,255,255,0.05); }
-    body.dark-mode .contact a { color: #ffcc00; }
-    body.dark-mode footer { background: #1e1e1e; }
-    body.dark-mode #darkToggle { background: #ff6f61; color: #fff; }
-    /* 🔹 Foto de perfil */
-.profile-pic {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-top: 1.5rem;
-  border: 4px solid #ffcc00;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-/* 🔹 Dark Mode */
-body.dark-mode .profile-pic {
-  border-color: #ff6f61;
-}
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+    }
 
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(244, 247, 251, 0.75);
+      border-bottom: 1px solid var(--border);
+    }
+
+    body.dark-mode .topbar {
+      background: rgba(13, 17, 23, 0.75);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--primary);
+    }
+
+    #darkToggle {
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    #darkToggle:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 4.5rem 0 3rem;
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.3fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(15, 39, 66, 0.98), rgba(31, 79, 130, 0.95));
+      color: #fff;
+      border-radius: 30px;
+      padding: 3rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -120px -120px auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 20px auto auto 60%;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(240, 180, 41, 0.14);
+      filter: blur(10px);
+    }
+
+    .hero-text,
+    .hero-media {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #ffe08a;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .hero .lead {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.88);
+      margin: 1.2rem 0 1.4rem;
+      max-width: 58ch;
+    }
+
+    .hero-highlight {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1.4rem 0 1.8rem;
+    }
+
+    .hero-highlight span {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      padding: 0.65rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #18212c;
+      box-shadow: 0 10px 24px rgba(240, 180, 41, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .hero-panel {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 24px;
+      padding: 1.25rem;
+      max-width: 360px;
+      margin-left: auto;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      border: 4px solid rgba(255,255,255,0.85);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.22);
+    }
+
+    .hero-panel h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1.15rem;
+      color: #fff;
+      text-align: center;
+      border: none;
+      padding: 0;
+    }
+
+    .hero-panel p {
+      margin: 0;
+      text-align: center;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.96rem;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.85rem;
+      margin-top: 1.2rem;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 0.9rem;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .stat span {
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .section {
+      padding: 2rem 0;
+    }
+
+    .section-title {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.6rem, 2vw, 2.3rem);
+      line-height: 1.15;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+    }
+
+    .section-intro {
+      margin: 0 0 1.4rem;
+      color: var(--muted);
+      max-width: 72ch;
+      font-size: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.85rem;
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .value-item {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .value-item h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+
+    .value-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .projects-grid,
+    .cert-grid,
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+
+    .project-card,
+    .cert-card,
+    .skill-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 1.45rem;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover,
+    .cert-card:hover,
+    .skill-card:hover,
+    .value-item:hover,
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card h3,
+    .cert-card h3,
+    .skill-card h3 {
+      margin: 0 0 0.7rem;
+      color: var(--primary);
+      font-size: 1.08rem;
+    }
+
+    .project-card p,
+    .cert-card p,
+    .skill-card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .project-links,
+    .cert-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .inline-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--primary-2);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .inline-link:hover {
+      color: var(--accent-2);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      background: var(--bg-alt);
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .experience-item {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.3rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .experience-item h3 {
+      margin: 0 0 0.4rem;
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+
+    .experience-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.3rem;
+      align-items: stretch;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem 1.1rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #fff;
+      border-radius: 24px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h3 {
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+      font-size: 1.25rem;
+      color: #fff;
+    }
+
+    .cta-box p {
+      margin: 0 0 1.2rem;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.2rem 0 0;
+    }
+
+    @media (max-width: 980px) {
+      .hero-card,
+      .grid-2,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid,
+      .cert-grid,
+      .skills-grid,
+      .value-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-panel {
+        margin-left: 0;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        gap: 0.7rem;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .hero-card {
+        padding: 1.6rem;
+        border-radius: 24px;
+      }
+
+      .section {
+        padding: 1.4rem 0;
+      }
+
+      .projects-grid,
+      .cert-grid,
+      .skills-grid,
+      .value-grid,
+      .mini-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Francisco Javier Fiestas Botella</h1>
-    <p>Desarrollador Python · IA · Machine Learning · Web Apps</p>
-    <img src="imgjavi.jpg" alt="Foto de Javier Fiestas" class="profile-pic">
-    <button id="darkToggle">🌙 Modo oscuro</button>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Francisco Javier Fiestas Botella</div>
+      <nav class="nav">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#formacion">Formación</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button id="darkToggle" aria-label="Cambiar modo oscuro">🌙 Modo oscuro</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-text">
+          <div class="eyebrow">Python · Automatización · IA aplicada · Desarrollo web</div>
+          <h1>Construyo soluciones tecnológicas útiles, claras y pensadas para resolver problemas reales.</h1>
+          <p class="lead">
+            Soy Francisco Javier Fiestas Botella, desarrollador orientado a Python, automatización,
+            inteligencia artificial aplicada y desarrollo web. Me enfoco en crear herramientas prácticas,
+            mejorar procesos y convertir necesidades reales en soluciones funcionales.
+          </p>
+
+          <div class="hero-highlight">
+            <span>🐍 Python y scripting</span>
+            <span>⚙️ Automatización y productividad</span>
+            <span>🧠 IA aplicada a casos reales</span>
+            <span>🌐 Web y bases de datos</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+            <a class="btn btn-secondary" href="CV%202025.pdf" target="_blank" rel="noopener noreferrer">Descargar CV</a>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-panel">
+            <img src="imgjavi.jpg" alt="Foto de Javier Fiestas" class="profile-pic">
+            <h2>Perfil técnico con visión práctica</h2>
+            <p>
+              Experiencia en tecnología y en atención al cliente, con capacidad para adaptarme,
+              aprender rápido y trabajar con responsabilidad, orden y foco en resultados.
+            </p>
+
+            <div class="mini-stats">
+              <div class="stat">
+                <strong>Python</strong>
+                <span>Desarrollo práctico</span>
+              </div>
+              <div class="stat">
+                <strong>IA</strong>
+                <span>Uso aplicado</span>
+              </div>
+              <div class="stat">
+                <strong>Web</strong>
+                <span>HTML, CSS, Flask</span>
+              </div>
+              <div class="stat">
+                <strong>BBDD</strong>
+                <span>SQLite, MySQL, PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>Sobre mí</h2>
-    <p>Soy programador Python con formación en Inteligencia Artificial, Machine Learning y desarrollo web. 
-       Vengo del sector de la hostelería, lo que me ha dado experiencia en organización, atención al detalle y trabajo en equipo. 
-       Me apasiona crear soluciones prácticas con la tecnología.</p>
-  </section>
+  <main>
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <h2 class="section-title">Sobre mí</h2>
+        <p class="section-intro">
+          Mi perfil combina formación técnica, aprendizaje continuo y una orientación muy clara a la utilidad real.
+          No me interesa la tecnología como adorno, sino como herramienta para ordenar, automatizar, mejorar y facilitar procesos.
+        </p>
 
-  <section>
-    <h2>Proyectos destacados</h2>
-    <div class="projects">
-      <div class="project">
-        <h3>📊 Predicción del precio del café</h3>
-        <p>Modelo de Machine Learning con Random Forest para analizar series temporales y predecir el precio del café.</p>
-        <a href="https://github.com/Javierfiestasbotella" target="_blank">🔗 Ver en GitHub</a>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Un perfil técnico con experiencia real de trabajo</h3>
+            <p>
+              Vengo del sector de la hostelería, un entorno donde he desarrollado constancia, capacidad de reacción,
+              atención al detalle, trato con personas, trabajo bajo presión y mentalidad resolutiva. Esa experiencia
+              me ha dado una base muy valiosa que hoy aplico en el ámbito tecnológico con una visión práctica y realista.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Qué aporto</h3>
+            <p>
+              Aporto una combinación de desarrollo con Python, automatización, bases de datos, web e inteligencia artificial
+              aplicada. Me motiva detectar necesidades concretas, entender el problema y construir soluciones útiles,
+              claras y mantenibles. Estoy especialmente orientado a proyectos que mejoren procesos, ahorren tiempo y aporten orden.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="project">
-        <h3>🍽️ App de gestión con BBDD </h3>
-        <p>Aplicación en Python/Tkinter para organizar base de datos de clientes y sus datos.</p>
-        <a href="https://github.com/Javierfiestasbotella/app_empresa_sgc" target="_blank">🔗 Ver en GitHub</a>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Mi propuesta de valor</h2>
+        <p class="section-intro">
+          Estas son las ideas que quiero que se entiendan rápido cuando alguien entra en mi portfolio.
+        </p>
+
+        <div class="value-grid">
+          <div class="value-item">
+            <h3>Resolución de problemas</h3>
+            <p>Me centro en construir soluciones prácticas que funcionen y aporten utilidad desde el primer momento.</p>
+          </div>
+          <div class="value-item">
+            <h3>Aprendizaje constante</h3>
+            <p>Me adapto rápido, sigo formándome y busco mejorar tanto a nivel técnico como en enfoque profesional.</p>
+          </div>
+          <div class="value-item">
+            <h3>Visión aplicada</h3>
+            <p>No me quedo en la teoría: priorizo herramientas, automatizaciones y aplicaciones con uso real.</p>
+          </div>
+          <div class="value-item">
+            <h3>Compromiso y constancia</h3>
+            <p>Trabajo con seriedad, organización y ganas de crecer en entornos donde pueda aportar de verdad.</p>
+          </div>
+        </div>
       </div>
-      <div class="project">
-        <h3>🌦️ Asistente IA</h3>
-        <p>Proyecto de Machine Learning e IA utilizando Geminis.</p>
-        <a href="https://github.com/Javierfiestasbotella/bot-chancla" target="_blank">🔗 Ver en GitHub</a>
+    </section>
+
+    <section class="section" id="proyectos">
+      <div class="container">
+        <h2 class="section-title">Proyectos destacados</h2>
+        <p class="section-intro">
+          Una selección de proyectos enfocados a datos, automatización, desarrollo de herramientas útiles y creación de soluciones orientadas a necesidades concretas.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>📊 Predicción del precio del café</h3>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Series temporales</span>
+            </div>
+            <p>
+              Proyecto de análisis y predicción orientado al estudio del precio del café mediante técnicas de Machine Learning.
+              Desarrollado para trabajar con datos, detectar patrones y aplicar modelos predictivos con enfoque práctico.
+            </p>
+            <div class="project-links">
+              <a class="inline-link" href="https://github.com/Javierfiestasbotella" target="_blank" rel="noopener noreferrer">🔗 Ver en GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>🍽️ App de gestión con base de datos</h3>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Tkinter</span>
+              <span class="tag">BBDD</span>
+            </div>
+            <p>
+              Aplicación desarrollada para gestionar clientes y datos asociados desde una interfaz de escritorio.
+              Pensada para facilitar el trabajo diario, mejorar el control de la información y aportar orden operativo.
+            </p>
+            <div class="project-links">
+              <a class="inline-link" href="https://github.com/Javierfiestasbotella/app_empresa_sgc" target="_blank" rel="noopener noreferrer">🔗 Ver repositorio</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>🌦️ Asistente IA</h3>
+            <div class="tag-list">
+              <span class="tag">IA aplicada</span>
+              <span class="tag">Automatización</span>
+              <span class="tag">Integración</span>
+            </div>
+            <p>
+              Proyecto basado en inteligencia artificial orientado a automatizar respuestas y generar asistencia útil.
+              Enfocado en integrar capacidades de IA en flujos reales y en soluciones con utilidad directa.
+            </p>
+            <div class="project-links">
+              <a class="inline-link" href="https://github.com/Javierfiestasbotella/bot-chancla" target="_blank" rel="noopener noreferrer">🔗 Ver repositorio</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>🧾 Herramienta para hostelería</h3>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Tkinter</span>
+              <span class="tag">Productividad</span>
+            </div>
+            <p>
+              Aplicación enfocada a la creación de sugerencias y menús diarios, pensada para agilizar tareas repetitivas
+              y ayudar en la organización de contenidos operativos en un entorno real de hostelería.
+            </p>
+            <div class="project-links">
+              <a class="inline-link" href="https://github.com/Javierfiestasbotella/SugerChef" target="_blank" rel="noopener noreferrer">🔗 Ver repositorio</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>🌐 Página web HTML5 para servicios profesionales</h3>
+            <div class="tag-list">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Diseño web</span>
+            </div>
+            <p>
+              Desarrollo de una web orientada a presencia digital profesional para servicios relacionados con Qigong y quiromasaje en Málaga.
+              Proyecto centrado en claridad visual, estructura, contenido y presentación online.
+            </p>
+            <div class="project-links">
+              <a class="inline-link" href="https://github.com/Javierfiestasbotella/silkung" target="_blank" rel="noopener noreferrer">🔗 Ver repositorio</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>🚀 Enfoque general de mis proyectos</h3>
+            <div class="tag-list">
+              <span class="tag">Soluciones reales</span>
+              <span class="tag">Automatización</span>
+              <span class="tag">Mejora de procesos</span>
+            </div>
+            <p>
+              Mi línea de trabajo está centrada en crear herramientas útiles: automatizaciones, pequeñas aplicaciones,
+              asistentes, organización de datos y soluciones que ayuden a ahorrar tiempo, reducir fricción y mejorar procesos.
+            </p>
+            <div class="project-links">
+              <a class="inline-link" href="https://github.com/Javierfiestasbotella" target="_blank" rel="noopener noreferrer">🔗 Ver perfil de GitHub</a>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="project">
-        <h3>🧑‍🤝‍🧑 App para Hostelería</h3>
-        <p>Aplicación de creación de sugerencias y menús diarios en Tkinter.</p>
-        <a href="https://github.com/Javierfiestasbotella/SugerChef" target="_blank">🔗 Ver en GitHub</a>
+    </section>
+
+    <section class="section" id="habilidades">
+      <div class="container">
+        <h2 class="section-title">Habilidades y tecnologías</h2>
+        <p class="section-intro">
+          Tecnologías y áreas en las que me apoyo para construir soluciones funcionales, claras y mantenibles.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>🐍 Desarrollo con Python</h3>
+            <p>Automatización, scripting, aplicaciones de escritorio, tratamiento de datos y desarrollo de utilidades prácticas.</p>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Tkinter</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Django</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>🧠 Inteligencia artificial y datos</h3>
+            <p>Uso aplicado de IA, análisis de datos, modelos predictivos y herramientas orientadas a productividad y automatización.</p>
+            <div class="tag-list">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">Keras</span>
+              <span class="tag">IA generativa</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>🌐 Desarrollo web</h3>
+            <p>Creación de páginas y aplicaciones web con foco en estructura, claridad, usabilidad y mantenimiento sencillo.</p>
+            <div class="tag-list">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Responsive</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>🗄️ Bases de datos y organización de información</h3>
+            <p>Trabajo con bases de datos relacionales para almacenar, consultar y estructurar información con lógica y orden.</p>
+            <div class="tag-list">
+              <span class="tag">SQLite</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>⚙️ Automatización y mejora de procesos</h3>
+            <p>Diseño de pequeñas soluciones orientadas a reducir trabajo manual, organizar tareas y mejorar flujos operativos.</p>
+            <div class="tag-list">
+              <span class="tag">Automatización</span>
+              <span class="tag">n8n</span>
+              <span class="tag">Prompt Engineering</span>
+              <span class="tag">IA aplicada</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>🛠️ Entorno técnico</h3>
+            <p>Herramientas y conocimientos complementarios para desarrollar, versionar, desplegar y mantener proyectos.</p>
+            <div class="tag-list">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Cloud</span>
+              <span class="tag">Power BI</span>
+            </div>
+          </div>
+        </div>
       </div>
-       <div class="project">
-        <h3>🧑‍🤝‍🧑Página WEB en HTML5</h3>
-        <p>Página WEB en HTLM5 de Monitora de Qigong y quiromasajista en Málaga.</p>
-        <a href="https://github.com/Javierfiestasbotella/silkung" target="_blank">🔗 Ver en GitHub</a>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Experiencia diferencial</h2>
+        <p class="section-intro">
+          Mi experiencia fuera del sector tecnológico también aporta valor y refuerza mi perfil profesional.
+        </p>
+
+        <div class="experience-list">
+          <div class="experience-item">
+            <h3>Trabajo bajo presión y foco operativo</h3>
+            <p>
+              Haber trabajado en hostelería me ha enseñado a moverme en entornos exigentes, resolver incidencias con rapidez
+              y mantener la atención en el servicio y en el detalle incluso en momentos de alta carga.
+            </p>
+          </div>
+
+          <div class="experience-item">
+            <h3>Trato con personas y visión práctica</h3>
+            <p>
+              Entiendo bien las necesidades reales de clientes y equipos. Esto me ayuda a diseñar soluciones más útiles,
+              más claras y más conectadas con el día a día de quienes las van a usar.
+            </p>
+          </div>
+
+          <div class="experience-item">
+            <h3>Constancia, adaptación y ganas de crecer</h3>
+            <p>
+              Mi transición hacia tecnología demuestra implicación, capacidad de aprendizaje y determinación para construir
+              un perfil técnico sólido con recorrido a largo plazo.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>Tecnologías</h2>
-    <div class="tech-list">
-      <span class="tech-badge python">🐍 Python</span>
-      <span class="tech-badge ml">🤖 Machine Learning (Tensorflow, Keras)</span>
-      <span class="tech-badge web">🌐 Flask & Django</span>
-      <span class="tech-badge sql">🗄️ PostgreSQL / MySQL / SQLite</span>
-      <span class="tech-badge powerbi">📊 Power BI</span>
-      <span class="tech-badge docker">🐳 Docker</span>
-      <span class="tech-badge cloud">☁️ Cloud (AWS, GCP, Azure)</span>
-      <span class="tech-badge linux">🐧 Linux</span>
-      <span class="tech-badge git">🛠️ Git & GitHub</span>
-      <span class="tech-badge n8n">🔁 n8n</span>
-      <span class="tech-badge ai">🧠 IA Generativa</span>
-      <span class="tech-badge prompt">💬 Prompt Engineering</span>
-      <span class="tech-badge automation">⚙️ Automatización IA</span>
+    <section class="section" id="formacion">
+      <div class="container">
+        <h2 class="section-title">Formación y certificaciones</h2>
+        <p class="section-intro">
+          Formación enfocada a Python, datos, desarrollo web, inteligencia artificial y herramientas útiles para entornos reales.
+        </p>
 
-    </div>
-  </section>
- <section>
-  <h2>Formación y Certificaciones</h2>
+        <div class="cert-grid">
+          <article class="cert-card">
+            <h3>🎓 Data Science, Machine Learning y Deep Learning</h3>
+            <p>
+              Formación oficial de 140 horas en análisis de datos con Python, visualización,
+              series temporales, Machine Learning y Deep Learning con TensorFlow y Keras.
+            </p>
+            <div class="cert-links">
+              <a class="inline-link" href="Diploma_Data_Science_ML_DL.pdf" target="_blank" rel="noopener noreferrer">📄 Ver diploma</a>
+            </div>
+          </article>
 
-  <div class="projects">
+          <article class="cert-card">
+            <h3>🌐 Diseño de páginas web para hostelería (IFCD0038)</h3>
+            <p>
+              Formación oficial de 100 horas centrada en HTML, CSS, estructura visual,
+              contenidos y creación de páginas web funcionales y atractivas.
+            </p>
+            <div class="cert-links">
+              <a class="inline-link" href="Diploma_44588718K (1).pdf" target="_blank" rel="noopener noreferrer">📄 Ver diploma</a>
+            </div>
+          </article>
 
-    <div class="project">
-      <h3>🎓 Data Science, Machine Learning y Deep Learning</h3>
-      <p>
-        Formación oficial de <strong>140 horas</strong> en modalidad teleformación.
-        Especialización en análisis de datos con Python, visualización, series temporales,
-        Machine Learning y Deep Learning con <strong>TensorFlow</strong> y <strong>Keras</strong>.
-      </p>
-      <p>
-        Incluye trabajo con <strong>NumPy, Pandas, Matplotlib, Seaborn</strong>, modelos de
-        clasificación, regresión, clustering, redes neuronales artificiales,
-        redes convolucionales y redes recurrentes.
-      </p>
-      <a href="Diploma_Data_Science_ML_DL.pdf" target="_blank">
-        📄 Ver diploma en PDF
-      </a>
-    </div>
+          <article class="cert-card">
+            <h3>🤖 Programación Python e Inteligencia Artificial · Tokio School</h3>
+            <p>
+              Formación de 600 horas orientada a desarrollo con Python, automatización,
+              lógica de programación, tratamiento de datos e introducción aplicada a IA.
+            </p>
+            <div class="cert-links">
+              <a class="inline-link" href="Programador_Python_Tokio.pdf" target="_blank" rel="noopener noreferrer">📄 Diploma Python</a>
+              <a class="inline-link" href="Inteligencia_Artificial_Tokio.pdf" target="_blank" rel="noopener noreferrer">📄 Diploma IA</a>
+            </div>
+          </article>
 
-    <div class="project">
-      <h3>🌐 Diseño de páginas web para hostelería (IFCD0038)</h3>
-      <p>
-        Formación oficial de <strong>100 horas</strong> en modalidad teleformación,
-        centrada en diseño web aplicado al sector hostelero.
-      </p>
-      <p>
-        Contenidos en <strong>HTML, CSS, composición de layouts, diseño visual,
-        gestión de contenidos y WordPress</strong>, orientados a la creación de páginas
-        web funcionales y atractivas para negocios.
-      </p>
-      <a href="Diploma_44588718K (1).pdf" target="_blank">
-        📄 Ver diploma en PDF
-      </a>
-    </div>
+          <article class="cert-card">
+            <h3>🔐 Python y Ciberseguridad · Cisco Networking Academy</h3>
+            <p>
+              Formación técnica en programación Python y fundamentos de ciberseguridad,
+              con enfoque en amenazas, vulnerabilidades y buenas prácticas digitales.
+            </p>
+            <div class="cert-links">
+              <a class="inline-link" href="Cisco_Python_Cybersecurity.pdf" target="_blank" rel="noopener noreferrer">📄 Ver certificado</a>
+            </div>
+          </article>
 
-    <div class="project">
-      <h3>🤖 Programación Python & Inteligencia Artificial · Tokio School</h3>
-      <p>
-        Formación profesional especializada con <strong>600 horas</strong> en total,
-        centrada en desarrollo con Python, automatización, análisis de datos
-        e introducción aplicada a la Inteligencia Artificial.
-      </p>
-      <p>
-        Base sólida para el desarrollo de aplicaciones, lógica de programación,
-        tratamiento de datos y creación de soluciones prácticas orientadas a negocio.
-      </p>
-      <a href="Programador_Python_Tokio.pdf" target="_blank">
-        📄 Ver diploma Programador Python
-      </a>
-      <br>
-      <a href="Inteligencia_Artificial_Tokio.pdf" target="_blank">
-        📄 Ver diploma Inteligencia Artificial
-      </a>
-    </div>
+          <article class="cert-card">
+            <h3>🌍 Desarrollo Web y Análisis de Datos con Python · freeCodeCamp</h3>
+            <p>
+              Itinerario práctico centrado en desarrollo web responsive, análisis de datos,
+              estructuras de datos y resolución de problemas.
+            </p>
+            <div class="cert-links">
+              <a class="inline-link" href="freeCodeCamp_Web_Data_Python.pdf" target="_blank" rel="noopener noreferrer">📄 Ver certificaciones</a>
+            </div>
+          </article>
 
-    <div class="project">
-      <h3>🔐 Python y Ciberseguridad · Cisco Networking Academy</h3>
-      <p>
-        Formación técnica impartida por <strong>Cisco Networking Academy</strong> y
-        OpenEDG Python Institute, orientada al desarrollo de competencias en
-        programación Python y fundamentos de ciberseguridad.
-      </p>
-      <p>
-        Enfoque en seguridad online, amenazas, vulnerabilidades y buenas prácticas
-        en entornos digitales.
-      </p>
-      <a href="Cisco_Python_Cybersecurity.pdf" target="_blank">
-        📄 Ver certificado Cisco (PDF)
-      </a>
-    </div>
+          <article class="cert-card">
+            <h3>🗄️ SQL Interactivo · Academia Desafío Latam</h3>
+            <p>
+              Formación práctica en SQL y bases de datos relacionales, incluyendo consultas,
+              operaciones CRUD, agrupaciones, combinaciones y subconsultas.
+            </p>
+            <div class="cert-links">
+              <a class="inline-link" href="SQL_Interactivo_Completo.pdf" target="_blank" rel="noopener noreferrer">📄 Ver certificación</a>
+            </div>
+          </article>
 
-    <div class="project">
-      <h3>🌍 Desarrollo Web y Análisis de Datos con Python · freeCodeCamp</h3>
-      <p>
-        Itinerario formativo práctico de <strong>freeCodeCamp</strong> enfocado a
-        desarrollo web responsive, análisis de datos y fundamentos matemáticos
-        aplicados a Python.
-      </p>
-      <p>
-        Orientado a la resolución de problemas, estructuras de datos,
-        análisis y visualización.
-      </p>
-      <a href="freeCodeCamp_Web_Data_Python.pdf" target="_blank">
-        📄 Ver certificaciones freeCodeCamp (PDF)
-      </a>
-    </div>
+          <article class="cert-card">
+            <h3>💻 Professional Python Front end and Database · Udemy</h3>
+            <p>
+              Formación complementaria en Python, front-end y trabajo con bases de datos,
+              útil para reforzar una visión más práctica y transversal del desarrollo.
+            </p>
+            <div class="cert-links">
+              <a class="inline-link" href="UC-5413065f-de00-4be2-9769-3337c7b37999.pdf" target="_blank" rel="noopener noreferrer">📄 Ver certificado</a>
+            </div>
+          </article>
 
-    <div class="project">
-      <h3>🗄️ SQL Interactivo · Consultas y gestión de bases de datos</h3>
-      <p>
-        Formación práctica en <strong>SQL</strong> orientada a bases de datos relacionales.
-        Desarrollo de consultas básicas y avanzadas, operaciones CRUD,
-        agrupaciones, combinaciones y subconsultas.
-      </p>
-      <p>
-        Curso impartido por <strong>Academia Desafío Latam</strong>.
-      </p>
-      <a href="SQL_Interactivo_Completo.pdf" target="_blank">
-        📄 Ver certificación SQL (PDF)
-      </a>
-    </div>
+          <article class="cert-card">
+            <h3>🧠 Máster en Herramientas de Inteligencia Artificial 2026 · Udemy</h3>
+            <p>
+              Formación centrada en herramientas y aplicaciones de IA para productividad,
+              automatización y generación de contenido con enfoque profesional.
+            </p>
+            <div class="cert-links">
+              <a class="inline-link" href="UC-5d4bfd6b-4c52-4826-a866-69bd501ea148.pdf" target="_blank" rel="noopener noreferrer">📄 Ver certificado</a>
+            </div>
+          </article>
 
-    <div class="project">
-      <h3>💻 Professional Python Front end and Database · Udemy</h3>
-      <p>
-        Certificación de finalización en <strong>Udemy</strong>, impartida por
-        <strong>Alejandro Guzman Castellanos</strong>, con una duración de
-        <strong>10,5 horas</strong>.
-      </p>
-      <p>
-        Formación complementaria orientada a Python, desarrollo front-end y
-        trabajo con bases de datos.
-      </p>
-      <a href="UC-5413065f-de00-4be2-9769-3337c7b37999.pdf" target="_blank">
-        📄 Ver certificado Udemy
-      </a>
-    </div>
+          <article class="cert-card">
+            <h3>🤖 Inteligencia Artificial Generativa · IBM SkillsBuild & BeJob</h3>
+            <p>
+              Certificación de 70 horas en IA generativa, automatización, agentes,
+              generación de imágenes y aplicación práctica de herramientas de IA.
+            </p>
+            <div class="cert-links">
+              <a class="inline-link" href="certificado_Francisco_Javier_Fiestas_Botella.pdf" target="_blank" rel="noopener noreferrer">📄 Ver certificado</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <div class="project">
-      <h3>🧠 Máster en Herramientas de Inteligencia Artificial 2026 · Udemy</h3>
-      <p>
-        Certificación de finalización en <strong>Udemy</strong> con una duración de
-        <strong>40,5 horas</strong>, centrada en herramientas y aplicaciones prácticas
-        de Inteligencia Artificial.
-      </p>
-      <p>
-        Formación complementaria orientada al uso profesional de soluciones de IA
-        aplicadas a productividad, automatización y generación de contenido.
-      </p>
-      <a href="UC-5d4bfd6b-4c52-4826-a866-69bd501ea148.pdf" target="_blank">
-        📄 Ver certificado Udemy
-      </a>
-    </div>
+    <section class="section" id="contacto">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-intro">
+          Estoy abierto a oportunidades en tecnología, colaboración en proyectos y conversaciones profesionales
+          donde pueda aportar valor con un perfil práctico, comprometido y con ganas de seguir creciendo.
+        </p>
 
-  </div>
-   <div class="project">
-  <h3>🤖 Inteligencia Artificial Generativa · IBM SkillsBuild & BeJob</h3>
-  <p>
-    Certificación profesional de <strong>70 horas</strong> en Inteligencia Artificial Generativa,
-    impartida por <strong>IBM SkillsBuild</strong> en colaboración con <strong>BeJob</strong>.
-  </p>
-  <p>
-    Formación en uso práctico de herramientas de IA, automatización de procesos,
-    generación de imágenes, agentes autónomos y aplicaciones reales en entornos profesionales.
-  </p>
-  <p>
-    Enfoque orientado a productividad, innovación y aplicación directa de la IA en proyectos.
-  </p>
-  <a href="certificado_Francisco_Javier_Fiestas_Botella.pdf" target="_blank">
-    📄 Ver certificado IA Generativa (PDF)
-  </a>
-</div>
-</section>
+        <div class="contact-panel">
+          <div class="card">
+            <h3>Hablemos</h3>
+            <p>
+              Si buscas una persona con mentalidad resolutiva, buena base técnica y orientación a soluciones útiles,
+              estaré encantado de hablar contigo.
+            </p>
 
+            <div class="contact-list">
+              <a class="contact-item" href="mailto:javierfiestasbotella@gmail.com">
+                📧 javierfiestasbotella@gmail.com
+              </a>
 
-  <section class="contact">
-    <h2>Contacto</h2>
-    <a href="https://github.com/Javierfiestasbotella" target="_blank">GitHub</a>
-    <a href="https://javierfiestasbotella.blogspot.com/" target="_blank">Blog</a>
-    <a href="mailto:javierfiestasbotella@gmail.com">Email</a>
-    <a href="CV%202025.pdf" target="_blank">Descargar CV</a>
-  </section>
+              <a class="contact-item" href="tel:+34628796613">
+                📱 +34 628 796 613
+              </a>
+
+              <a class="contact-item" href="https://github.com/Javierfiestasbotella" target="_blank" rel="noopener noreferrer">
+                💻 GitHub
+              </a>
+
+              <a class="contact-item" href="https://javierfiestasbotella.blogspot.com/" target="_blank" rel="noopener noreferrer">
+                📝 Blog
+              </a>
+
+              <a class="contact-item" href="CV%202025.pdf" target="_blank" rel="noopener noreferrer">
+                📄 Descargar CV
+              </a>
+
+              <a class="contact-item" href="#" title="Añade aquí tu perfil de LinkedIn cuando lo tengas">
+                🔗 LinkedIn (añadir enlace)
+              </a>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <h3>Busco seguir creciendo en tecnología</h3>
+            <p>
+              Me interesan especialmente oportunidades relacionadas con Python, automatización, IA aplicada,
+              desarrollo web y mejora de procesos. También proyectos donde se valore una mentalidad práctica
+              y capacidad para convertir problemas reales en herramientas útiles.
+            </p>
+
+            <div class="cta-actions">
+              <a class="btn btn-primary" href="mailto:javierfiestasbotella@gmail.com">Escribirme por email</a>
+              <a class="btn btn-secondary" href="https://github.com/Javierfiestasbotella" target="_blank" rel="noopener noreferrer">Ver GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Javier Fiestas · Portafolio personal</p>
-    <p>Teléfono: <a href="tel:+34628796613">+34 628 796 613</a></p>
+    <div class="container">
+      <p>© 2026 Francisco Javier Fiestas Botella · Portfolio personal</p>
+      <p>Desarrollador orientado a Python, automatización, inteligencia artificial aplicada y desarrollo web</p>
+    </div>
   </footer>
 
   <script>
     const toggle = document.getElementById("darkToggle");
+
     toggle.addEventListener("click", () => {
       document.body.classList.toggle("dark-mode");
-      toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️ Modo claro" : "🌙 Modo oscuro";
+      toggle.textContent = document.body.classList.contains("dark-mode")
+        ? "☀️ Modo claro"
+        : "🌙 Modo oscuro";
     });
   </script>
 </body>

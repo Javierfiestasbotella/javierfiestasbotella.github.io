@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio de Francisco Javier Fiestas Botella</title>
-  <meta name="description" content="Portfolio de Francisco Javier Fiestas Botella. Desarrollo en Python, automatización, inteligencia artificial aplicada, agentes de IA, n8n, Flowise y desarrollo web.">
+  <meta name="description" content="Portfolio de Francisco Javier Fiestas Botella. Desarrollo en Python, inteligencia artificial aplicada, automatización, desarrollo web y soluciones prácticas orientadas a problemas reales.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -44,13 +44,8 @@
       --shadow-soft: 0 6px 18px rgba(0,0,0,0.24);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -64,15 +59,8 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
       width: min(var(--maxw), calc(100% - 2rem));
@@ -120,9 +108,7 @@
       transition: color 0.2s ease;
     }
 
-    .nav a:hover {
-      color: var(--primary);
-    }
+    .nav a:hover { color: var(--primary); }
 
     #darkToggle {
       background: var(--surface);
@@ -136,9 +122,7 @@
       transition: transform 0.2s ease;
     }
 
-    #darkToggle:hover {
-      transform: translateY(-1px);
-    }
+    #darkToggle:hover { transform: translateY(-1px); }
 
     .hero {
       padding: 3.5rem 0 2rem;
@@ -234,9 +218,7 @@
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
       background: var(--accent);
@@ -304,9 +286,7 @@
       font-size: 0.84rem;
     }
 
-    .section {
-      padding: 2rem 0;
-    }
+    .section { padding: 2rem 0; }
 
     .section-title {
       margin: 0 0 0.5rem;
@@ -332,7 +312,8 @@
     .skill-card,
     .cert-card,
     .value-card,
-    .contact-card {
+    .contact-card,
+    .featured-cert {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 22px;
@@ -346,9 +327,28 @@
     .skill-card:hover,
     .cert-card:hover,
     .value-card:hover,
-    .contact-card:hover {
+    .contact-card:hover,
+    .featured-cert:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow);
+    }
+
+    .featured-cert {
+      padding: 1.8rem;
+      background: linear-gradient(135deg, rgba(13,37,63,0.05), rgba(255,204,0,0.10), rgba(31,79,130,0.05));
+      border: 1px solid rgba(255, 204, 0, 0.35);
+      margin-bottom: 1.2rem;
+    }
+
+    .featured-label {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      background: var(--accent);
+      color: #1b2430;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
     }
 
     .card h3,
@@ -356,10 +356,15 @@
     .skill-card h3,
     .cert-card h3,
     .value-card h3,
-    .contact-card h3 {
+    .contact-card h3,
+    .featured-cert h3 {
       margin: 0 0 0.7rem;
       color: var(--primary);
       font-size: 1.08rem;
+    }
+
+    .featured-cert h3 {
+      font-size: 1.28rem;
     }
 
     .card p,
@@ -367,7 +372,8 @@
     .skill-card p,
     .cert-card p,
     .value-card p,
-    .contact-card p {
+    .contact-card p,
+    .featured-cert p {
       margin: 0 0 0.9rem;
       color: var(--muted);
     }
@@ -380,15 +386,10 @@
       gap: 1.2rem;
     }
 
-    .value-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
+    .value-grid { grid-template-columns: repeat(4, 1fr); }
     .projects,
     .skills-grid,
-    .cert-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .cert-grid { grid-template-columns: repeat(2, 1fr); }
 
     .tag-list {
       display: flex;
@@ -446,9 +447,7 @@
       transition: color 0.2s ease;
     }
 
-    .inline-link:hover {
-      color: var(--accent-2);
-    }
+    .inline-link:hover { color: var(--accent-2); }
 
     .contact-grid {
       display: grid;
@@ -505,30 +504,21 @@
         grid-template-columns: 1fr;
       }
 
-      .value-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
+      .value-grid { grid-template-columns: repeat(2, 1fr); }
       .projects,
       .skills-grid,
-      .cert-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .cert-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 700px) {
-      .hero-card {
-        padding: 1.7rem;
-      }
+      .hero-card { padding: 1.7rem; }
 
       .topbar-inner {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .nav {
-        gap: 0.7rem;
-      }
+      .nav { gap: 0.7rem; }
 
       .value-grid,
       .projects,
@@ -538,13 +528,8 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
     }
   </style>
 </head>
@@ -567,20 +552,19 @@
     <div class="container">
       <div class="hero-card">
         <div class="hero-left">
-          <div class="eyebrow">Python · Automatización · IA aplicada · n8n · Flowise · Web</div>
-          <h1>Construyo soluciones tecnológicas útiles, automatizaciones inteligentes y herramientas orientadas a problemas reales.</h1>
+          <div class="eyebrow">Python · IA aplicada · Automatización · Desarrollo web</div>
+          <h1>Construyo soluciones tecnológicas útiles, prácticas y orientadas a resolver problemas reales.</h1>
           <p class="lead">
-            Soy Francisco Javier Fiestas Botella, desarrollador orientado a Python, automatización,
-            inteligencia artificial aplicada, agentes de IA y desarrollo web. Me enfoco en crear
-            soluciones prácticas que ahorren tiempo, mejoren procesos y aporten utilidad real.
+            Soy Francisco Javier Fiestas Botella, desarrollador orientado a Python, inteligencia artificial aplicada,
+            automatización y desarrollo web. Me enfoco en crear herramientas funcionales, mejorar procesos y convertir necesidades reales en soluciones útiles.
           </p>
 
           <div class="hero-tags">
             <span>🐍 Python</span>
+            <span>🧠 IA aplicada</span>
             <span>⚙️ Automatización</span>
-            <span>🧠 IA y agentes</span>
-            <span>🔗 Integraciones</span>
-            <span>🌐 Desarrollo web</span>
+            <span>🌐 Web</span>
+            <span>🗄️ Bases de datos</span>
           </div>
 
           <div class="hero-actions">
@@ -594,22 +578,22 @@
             <img src="imgjavi.jpg" alt="Foto de Javier Fiestas" class="profile-pic">
             <h2>Perfil técnico con visión práctica</h2>
             <p>
-              Combino programación, automatización, herramientas visuales e inteligencia artificial
-              para construir soluciones claras, funcionales y aplicables a entornos reales.
+              Combino programación, análisis, automatización e inteligencia artificial para construir herramientas claras,
+              útiles y bien enfocadas.
             </p>
 
             <div class="stats">
               <div class="stat">
                 <strong>Python</strong>
-                <span>Herramientas y apps</span>
+                <span>Apps y automatización</span>
               </div>
               <div class="stat">
-                <strong>n8n</strong>
-                <span>Automatizaciones</span>
+                <strong>IA</strong>
+                <span>Uso aplicado</span>
               </div>
               <div class="stat">
-                <strong>Flowise</strong>
-                <span>Agentes y flujos IA</span>
+                <strong>Web</strong>
+                <span>HTML, CSS, Flask</span>
               </div>
               <div class="stat">
                 <strong>BBDD</strong>
@@ -628,22 +612,21 @@
         <h2 class="section-title">Sobre mí</h2>
         <p class="section-intro">
           Mi perfil combina desarrollo técnico, mentalidad práctica y una orientación clara a la utilidad real.
-          Me interesa construir soluciones que funcionen, simplifiquen tareas y aporten valor.
+          Busco construir soluciones que funcionen, simplifiquen tareas y aporten valor.
         </p>
 
         <div class="grid-2">
           <div class="card">
             <h3>Perfil técnico orientado a soluciones</h3>
             <p>
-              Soy Francisco Javier Fiestas Botella, desarrollador orientado a <strong>Python</strong>,
-              <strong>automatización</strong>, <strong>inteligencia artificial aplicada</strong> y
-              <strong>desarrollo web</strong>. Me interesa especialmente crear herramientas que ahorren tiempo,
-              automaticen tareas, organicen información y mejoren procesos reales.
+              Soy desarrollador orientado a <strong>Python</strong>, <strong>inteligencia artificial aplicada</strong>,
+              <strong>automatización</strong> y <strong>desarrollo web</strong>. Me interesa especialmente crear herramientas
+              que ahorren tiempo, automaticen tareas, organicen información y mejoren procesos reales.
             </p>
             <p>
-              Además de desarrollar con código, también tengo conocimientos en plataformas de automatización y
-              flujos inteligentes como <strong>n8n</strong> y <strong>Flowise</strong>, lo que me permite combinar
-              programación, integración de herramientas y agentes de IA según lo que mejor encaje en cada proyecto.
+              Además del desarrollo con código, también trabajo con herramientas visuales e integraciones como
+              <strong>n8n</strong> y <strong>Flowise</strong> cuando encajan bien en el proyecto, pero mi base principal
+              sigue siendo el desarrollo técnico y la construcción de soluciones prácticas.
             </p>
           </div>
 
@@ -651,11 +634,10 @@
             <h3>Experiencia que suma valor</h3>
             <p>
               Vengo del sector de la hostelería, una experiencia que me ha aportado capacidad de trabajo bajo presión,
-              atención al detalle, trato con personas, adaptación y mentalidad resolutiva.
+              atención al detalle, adaptación, trato con personas y mentalidad resolutiva.
             </p>
             <p>
-              Hoy aplico esa base a la tecnología con un enfoque práctico, cercano y orientado a resultados,
-              buscando siempre soluciones útiles y bien planteadas.
+              Hoy aplico esa base a la tecnología con un enfoque práctico, cercano y orientado a resultados.
             </p>
           </div>
         </div>
@@ -666,7 +648,7 @@
       <div class="container">
         <h2 class="section-title">Lo que aporto</h2>
         <p class="section-intro">
-          Una combinación de conocimientos técnicos, visión práctica y capacidad para elegir la mejor herramienta según el problema.
+          Una combinación de base técnica, visión práctica y capacidad para elegir la herramienta adecuada según el problema.
         </p>
 
         <div class="value-grid">
@@ -675,16 +657,16 @@
             <p>Busco soluciones claras, útiles y realistas, no solo desarrollos bonitos sobre el papel.</p>
           </div>
           <div class="value-card">
-            <h3>Automatización inteligente</h3>
-            <p>Combino código, integraciones, n8n, Flowise e IA para ahorrar tiempo y simplificar procesos.</p>
+            <h3>Base técnica sólida</h3>
+            <p>Python, IA, desarrollo web y bases de datos como núcleo principal de mi perfil.</p>
+          </div>
+          <div class="value-card">
+            <h3>Automatización aplicada</h3>
+            <p>Uso automatizaciones e integraciones para mejorar procesos y ahorrar tiempo cuando aportan valor real.</p>
           </div>
           <div class="value-card">
             <h3>Aprendizaje continuo</h3>
-            <p>Me sigo formando y adaptando para mantener un perfil técnico útil, actual y en crecimiento.</p>
-          </div>
-          <div class="value-card">
-            <h3>Mentalidad práctica</h3>
-            <p>Priorizo herramientas y proyectos que aporten utilidad real en negocios, equipos y tareas del día a día.</p>
+            <p>Me sigo formando para consolidar un perfil técnico útil, actual y con recorrido.</p>
           </div>
         </div>
       </div>
@@ -769,15 +751,15 @@
           </article>
 
           <article class="project">
-            <h3>🤖 Automatización y agentes de IA</h3>
+            <h3>🤖 Automatización e integraciones</h3>
             <div class="tag-list">
               <span class="tag">n8n</span>
               <span class="tag">Flowise</span>
               <span class="tag">Agentes IA</span>
             </div>
             <p>
-              Trabajo también con herramientas visuales de automatización e inteligencia artificial para construir
-              flujos, integraciones, chatbots, asistentes y procesos automatizados sin depender solo del código tradicional.
+              Complemento mi perfil técnico con herramientas de automatización e integración como n8n y Flowise
+              para construir flujos, asistentes y procesos automatizados cuando aportan valor al proyecto.
             </p>
             <a class="inline-link" href="https://github.com/Javierfiestasbotella" target="_blank" rel="noopener noreferrer">🔗 Ver perfil GitHub</a>
           </article>
@@ -820,7 +802,7 @@
           <article class="skill-card">
             <h3>⚙️ Automatización e integraciones</h3>
             <p>
-              Diseño de flujos para ahorrar tiempo, conectar herramientas, automatizar procesos y crear soluciones híbridas entre código e interfaces visuales.
+              Diseño de flujos para ahorrar tiempo, conectar herramientas, automatizar procesos y construir soluciones híbridas cuando conviene.
             </p>
             <div class="tech-list">
               <span class="tech-badge n8n">🔁 n8n</span>
@@ -902,6 +884,23 @@
           Formación orientada a Python, datos, desarrollo web, inteligencia artificial, automatización y herramientas aplicadas.
         </p>
 
+        <div class="featured-cert">
+          <span class="featured-label">Formación destacada</span>
+          <h3>🤖 Programación Python & Inteligencia Artificial · Tokio School</h3>
+          <p>
+            Una de las formaciones más importantes de mi perfil. Programa de <strong>600 horas</strong> centrado en
+            <strong>Python</strong>, <strong>inteligencia artificial</strong>, lógica de programación, automatización,
+            tratamiento de datos y desarrollo de soluciones prácticas orientadas a entornos reales.
+          </p>
+          <p>
+            Esta formación representa una base sólida en mi transición profesional hacia la tecnología y refuerza el núcleo de mi perfil técnico.
+          </p>
+          <p>
+            <a class="inline-link" href="Programador_Python_Tokio.pdf" target="_blank" rel="noopener noreferrer">📄 Ver diploma Programador Python</a><br>
+            <a class="inline-link" href="Inteligencia_Artificial_Tokio.pdf" target="_blank" rel="noopener noreferrer">📄 Ver diploma Inteligencia Artificial</a>
+          </p>
+        </div>
+
         <div class="cert-grid">
           <article class="cert-card">
             <h3>🎓 Data Science, Machine Learning y Deep Learning</h3>
@@ -913,24 +912,21 @@
           </article>
 
           <article class="cert-card">
+            <h3>🤖 Inteligencia Artificial Generativa · IBM SkillsBuild & BeJob</h3>
+            <p>
+              Certificación profesional de <strong>70 horas</strong> en inteligencia artificial generativa,
+              agentes, automatización de procesos y aplicaciones reales en entornos profesionales.
+            </p>
+            <a class="inline-link" href="certificado_Francisco_Javier_Fiestas_Botella.pdf" target="_blank" rel="noopener noreferrer">📄 Ver certificado</a>
+          </article>
+
+          <article class="cert-card">
             <h3>🌐 Diseño de páginas web para hostelería (IFCD0038)</h3>
             <p>
               Formación oficial de <strong>100 horas</strong> centrada en diseño web, HTML, CSS, estructura visual,
               gestión de contenidos y páginas funcionales.
             </p>
             <a class="inline-link" href="Diploma_44588718K (1).pdf" target="_blank" rel="noopener noreferrer">📄 Ver diploma</a>
-          </article>
-
-          <article class="cert-card">
-            <h3>🤖 Programación Python & Inteligencia Artificial · Tokio School</h3>
-            <p>
-              Formación profesional de <strong>600 horas</strong> centrada en Python, automatización,
-              lógica de programación, tratamiento de datos e introducción aplicada a IA.
-            </p>
-            <p>
-              <a class="inline-link" href="Programador_Python_Tokio.pdf" target="_blank" rel="noopener noreferrer">📄 Diploma Python</a><br>
-              <a class="inline-link" href="Inteligencia_Artificial_Tokio.pdf" target="_blank" rel="noopener noreferrer">📄 Diploma IA</a>
-            </p>
           </article>
 
           <article class="cert-card">
@@ -979,27 +975,13 @@
           </article>
 
           <article class="cert-card">
-            <h3>🤖 Inteligencia Artificial Generativa · IBM SkillsBuild & BeJob</h3>
-            <p>
-              Certificación profesional de <strong>70 horas</strong> en inteligencia artificial generativa,
-              agentes, automatización de procesos y aplicaciones reales en entornos profesionales.
-            </p>
-            <a class="inline-link" href="certificado_Francisco_Javier_Fiestas_Botella.pdf" target="_blank" rel="noopener noreferrer">📄 Ver certificado</a>
-          </article>
-
-          <article class="cert-card">
             <h3>⚙️ Automatización con n8n y Agentes de IA · Udemy</h3>
             <p>
               Formación práctica centrada en <strong>n8n</strong>, automatización de procesos y creación de
-              <strong>agentes de inteligencia artificial sin código</strong>, con enfoque aplicado a productividad,
-              integraciones y mejora de flujos de trabajo reales.
+              agentes de inteligencia artificial sin código, con más de <strong>15 proyectos prácticos</strong>.
             </p>
             <p>
-              Incluye más de <strong>15 proyectos prácticos</strong> orientados al diseño de automatizaciones,
-              conexión entre herramientas y uso aplicado de IA para optimizar tareas y procesos digitales.
-            </p>
-            <p>
-              <strong>Duración:</strong> 5,5 horas · <strong>Actualizado:</strong> febrero de 2026 · <strong>Idioma:</strong> Español
+              Aporta valor como formación complementaria dentro de mi perfil de automatización e integración de herramientas.
             </p>
             <a class="inline-link" href="AQUI_TU_CERTIFICADO_N8N.pdf" target="_blank" rel="noopener noreferrer">📄 Ver certificado</a>
           </article>
@@ -1036,8 +1018,8 @@
           <div class="cta-box">
             <h3>Busco seguir creciendo en tecnología</h3>
             <p>
-              Me interesan especialmente oportunidades relacionadas con Python, automatización, agentes de IA,
-              desarrollo web, integración de herramientas y mejora de procesos.
+              Me interesan especialmente oportunidades relacionadas con Python, inteligencia artificial aplicada,
+              automatización, desarrollo web, integración de herramientas y mejora de procesos.
             </p>
             <p>
               También proyectos donde se valore una mentalidad práctica y la capacidad de convertir necesidades reales
@@ -1056,7 +1038,7 @@
 
   <footer>
     <p>© 2026 Francisco Javier Fiestas Botella · Portafolio personal</p>
-    <p>Python · Automatización · IA aplicada · n8n · Flowise · Desarrollo web</p>
+    <p>Python · Inteligencia artificial aplicada · Automatización · Desarrollo web</p>
   </footer>
 
   <script>
